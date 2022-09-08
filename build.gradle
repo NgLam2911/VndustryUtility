@@ -1,19 +1,36 @@
-plugins {
-    id 'java'
-}
+apply plugin: "java"
 
-group 'vndustry'
-version '1.0-SNAPSHOT'
+version '0.1'
 
-repositories {
+sourceCompatibility = 1.8
+
+sourceSets.main.java.srcDirs = ["src"]
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories{
     mavenCentral()
+    maven{ url 'https://www.jitpack.io' }
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+ext{
+    //the build number that this plugin is made for
+    mindustryVersion = '138'
 }
 
-test {
-    useJUnitPlatform()
+dependencies{
+    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Mindustry:server:$mindustryVersion"
+}
+
+jar{
+    archiveFileName = "${project.archivesBaseName}.jar"
+    from{
+        configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
+    }
+
+    from(rootDir){
+        include "plugin.json"
+    }
 }
