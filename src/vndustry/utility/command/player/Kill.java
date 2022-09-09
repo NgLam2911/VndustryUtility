@@ -19,6 +19,7 @@ public class Kill extends PlayerCommand {
         if (args.length == 0) {
             player.unit().kill();
             player.sendMessage("[green]Killed yourself");
+            return;
         }
         Player target = Players.getPlayerbyPrefix(args[0]);
         if (target != null) {

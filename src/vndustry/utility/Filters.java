@@ -14,7 +14,7 @@ public class Filters {
 
     private static boolean handleAction(PlayerAction action) {
         //TODO: Handle Actions
-        return false;
+        return true;
     }
 
     private static String handleChat(Player player, String message) {
