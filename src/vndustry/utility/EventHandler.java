@@ -15,4 +15,5 @@ public class EventHandler {
         Player player = event.player;
         SessionManager.unregisterSession(player);
     }
+
 }

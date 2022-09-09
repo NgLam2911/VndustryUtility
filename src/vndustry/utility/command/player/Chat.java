@@ -28,4 +28,9 @@ public class Chat extends PlayerCommand{
             player.sendMessage("[scarlet]Chat enabled");
         }
     }
+
+    @Override
+    public boolean isLocked() {
+        return true;
+    }
 }

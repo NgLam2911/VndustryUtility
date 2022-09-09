@@ -1,14 +1,15 @@
 package vndustry.utility.command;
 
 import arc.util.CommandHandler;
-import vndustry.utility.command.player.Chat;
-import vndustry.utility.command.player.GG;
-import vndustry.utility.command.player.PlayerCommand;
+import vndustry.utility.command.player.*;
 
 public class CommandRegister {
     public static void registerPlayerCommands(CommandHandler handler){
         register(handler, new GG());
         register(handler, new Chat());
+        register(handler, new Kill());
+        register(handler, new Kick());
+        register(handler, new BuildCore());
     }
 
     public static void registerServerCommands(CommandHandler handler){
