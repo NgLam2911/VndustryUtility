@@ -11,6 +11,7 @@ jobs:
       - name: Setup Java Environment
         uses: actions/setup-java@v3
         with:
+          distribution: temurin
           # Currently my laptop doesn't haz enough space for java 18 so...
           java-version: 17
       - name: Build
