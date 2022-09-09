@@ -21,22 +21,22 @@ public class BuildCore extends PlayerCommand {
         Team team = player.team();
         if (args.length > 1) {
             team = Teams.getTeam(args[1]);
-            if (team == null){
+            if (team == null) {
                 player.sendMessage("[scarlet]Team not found !");
                 player.sendMessage("[green]Available teams:");
-                for (Team t : Team.baseTeams){
+                for (Team t : Team.baseTeams) {
                     player.sendMessage("[white] - [yellow]" + t.name);
                 }
                 return;
             }
         }
         CoreBlock coreBlock = fromString(args[0]);
-        Call.constructFinish(player.tileOn(), coreBlock, player.unit(), (byte)0, team, false);
+        Call.constructFinish(player.tileOn(), coreBlock, player.unit(), (byte) 0, team, false);
         player.sendMessage("[green]Core built for the team " + team.name + " !");
     }
 
-    protected CoreBlock fromString(String name){
-        switch (name){
+    protected CoreBlock fromString(String name) {
+        switch (name) {
             case "shard":
                 return (CoreBlock) Blocks.coreShard;
             case "foundation":

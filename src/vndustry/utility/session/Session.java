@@ -8,6 +8,7 @@ public class Session {
     protected Player player;
 
     public boolean chat = true;
+    public boolean muted = false;
 
     Session(Player player) {
         this.player = player;
@@ -15,7 +16,7 @@ public class Session {
 
     public PermissionLevel getPermissionLevel() {
         //TODO: Adapt with ranks
-        if (this.getPlayer().admin()){
+        if (this.getPlayer().admin()) {
             return PermissionLevel.Admin;
         }
         return PermissionLevel.Player;

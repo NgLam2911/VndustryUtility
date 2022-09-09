@@ -28,11 +28,11 @@ public class SessionManager {
         return null;
     }
 
-    public static void registerSession(Player player){
+    public static void registerSession(Player player) {
         SessionManager.addSession(new Session(player));
     }
 
-    public static void unregisterSession(Player player){
+    public static void unregisterSession(Player player) {
         SessionManager.removeSession(SessionManager.getSession(player));
     }
 }

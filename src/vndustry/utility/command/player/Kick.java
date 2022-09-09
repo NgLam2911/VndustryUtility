@@ -16,11 +16,11 @@ public class Kick extends PlayerCommand {
 
     @Override
     protected void onRun(Player player, String[] args) {
-        if (args.length == 0){
+        if (args.length == 0) {
             player.sendMessage("[scarlet]Please specify a player !");
         } else {
             Player target = Players.getPlayerbyPrefix(args[0]);
-            if (target != null){
+            if (target != null) {
                 target.kick("Kicked by administrator");
                 player.sendMessage("[green]Kicked " + target.name);
             } else {

@@ -5,8 +5,8 @@ import mindustry.game.Team;
 
 public class Teams {
 
-    public static @Nullable Team getTeam(String teamName){
-        switch (teamName){
+    public static @Nullable Team getTeam(String teamName) {
+        switch (teamName) {
             case "sharded":
                 return Team.sharded;
             case "crux":

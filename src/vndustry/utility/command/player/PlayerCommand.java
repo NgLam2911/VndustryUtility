@@ -13,18 +13,18 @@ public abstract class PlayerCommand {
     private String description = "";
     private @Nullable PermissionLevel permissionLevel = null;
 
-    PlayerCommand(){
+    PlayerCommand() {
         prepare();
     }
 
-    public final void execute(String[] args, Player player){
+    public final void execute(String[] args, Player player) {
         Session session = SessionManager.getSession(player);
-        if (session != null){
-            if (this.getPermissionLevel() == null){
+        if (session != null) {
+            if (this.getPermissionLevel() == null) {
                 throw new RuntimeException("Unknown command permission level !");
             }
-            if (getPermissionLevel().getLevel() <= session.getPermissionLevel().getLevel()){
-                if (!isLocked()){
+            if (getPermissionLevel().getLevel() <= session.getPermissionLevel().getLevel()) {
+                if (!isLocked()) {
                     onRun(player, args);
                 } else {
                     player.sendMessage("[scarlet]This command is not available :(");
@@ -71,7 +71,7 @@ public abstract class PlayerCommand {
         return permissionLevel;
     }
 
-    public boolean isLocked(){
+    public boolean isLocked() {
         return false;
     }
 

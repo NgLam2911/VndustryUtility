@@ -5,7 +5,7 @@ import vndustry.utility.session.Session;
 import vndustry.utility.session.SessionManager;
 import vndustry.utility.utils.PermissionLevel;
 
-public class Chat extends PlayerCommand{
+public class Chat extends PlayerCommand {
     @Override
     protected void prepare() {
         setName("chat");
@@ -17,10 +17,10 @@ public class Chat extends PlayerCommand{
     @Override
     protected void onRun(Player player, String[] args) {
         Session session = SessionManager.getSession(player);
-        if (session == null){
+        if (session == null) {
             return;
         }
-        if (session.chat){
+        if (session.chat) {
             session.chat = false;
             player.sendMessage("[scarlet]Chat disabled");
         } else {

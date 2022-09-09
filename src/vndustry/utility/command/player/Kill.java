@@ -16,12 +16,12 @@ public class Kill extends PlayerCommand {
 
     @Override
     protected void onRun(Player player, String[] args) {
-        if (args.length == 0){
+        if (args.length == 0) {
             player.unit().kill();
             player.sendMessage("[green]Killed yourself");
         }
         Player target = Players.getPlayerbyPrefix(args[0]);
-        if (target != null){
+        if (target != null) {
             target.unit().kill();
             player.sendMessage("[green]Killed " + target.name);
         } else {
