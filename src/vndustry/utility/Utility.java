@@ -1,7 +1,7 @@
 package vndustry.utility;
 
 import arc.util.CommandHandler;
-import jdk.internal.org.jline.utils.Log;
+import arc.util.Log;
 import mindustry.mod.Plugin;
 import vndustry.utility.command.CommandRegister;
 
