@@ -5,6 +5,7 @@ import mindustry.game.Team;
 import mindustry.gen.Call;
 import mindustry.gen.Player;
 import mindustry.world.blocks.storage.CoreBlock;
+import vndustry.utility.utils.PermissionLevel;
 import vndustry.utility.utils.Teams;
 
 public class BuildCore extends PlayerCommand {
@@ -14,6 +15,7 @@ public class BuildCore extends PlayerCommand {
         this.setName("core");
         this.setParams("<shard|foundation|nucleus|bastion|citadel|acropolis> [team]");
         this.setDescription("Build a core at your location");
+        this.setPermissionLevel(PermissionLevel.Admin);
     }
 
     @Override
