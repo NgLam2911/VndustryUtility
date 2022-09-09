@@ -1,0 +1,21 @@
+name: Github CI
+
+on: [ push ]
+
+jobs:
+  buildJar:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Java Environment
+        uses: actions/setup-java@v1
+        with:
+          # Currently my laptop doesn't haz enough space for java 18 so...
+          java-version: 17
+      - name: Build
+        run: ./gradlew jar
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.event.repository.name }}
+          path: build/libs/${{ github.event.repository.name }}.jar
