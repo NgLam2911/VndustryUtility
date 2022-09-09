@@ -14,7 +14,7 @@ public class Utility extends Plugin {
         EventHandler.initEvents();
         Filters.initFilters();
 
-        if (IS_DEVELOPMENT_BUILD){
+        if (IS_DEVELOPMENT_BUILD) {
             Log.warn("You are running a VndustryUtility DEVELOPMENT build !");
             Log.warn("The build may have bugs, crash, corrupt your data");
         }
