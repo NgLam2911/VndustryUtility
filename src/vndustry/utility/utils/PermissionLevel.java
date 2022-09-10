@@ -2,7 +2,7 @@ package vndustry.utility.utils;
 
 public enum PermissionLevel {
     Player(1),
-    Admin(2);
+    Admin(Integer.MAX_VALUE);
     //TODO: More roles
     private final int level;
 
