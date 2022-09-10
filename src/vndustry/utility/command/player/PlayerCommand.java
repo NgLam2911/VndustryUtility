@@ -8,16 +8,16 @@ import vndustry.utility.session.SessionManager;
 import vndustry.utility.utils.PermissionLevel;
 
 public abstract class PlayerCommand extends Command {
-    private @Nullable PermissionLevel permissionLevel = null;
+    protected @Nullable PermissionLevel permissionLevel = null;
 
-    public PlayerCommand() {
-        super();
+    PlayerCommand() {
+        prepare();
     }
 
-    public final void execute(String[] args, Player player) {
+    public void execute(String[] args, Player player) {
         Session session = SessionManager.getSession(player);
         if (session != null) {
-            if (this.getPermissionLevel() == null) {
+            if (getPermissionLevel() == null) {
                 throw new RuntimeException("Unknown command permission level !");
             }
             if (getPermissionLevel().getLevel() <= session.getPermissionLevel().getLevel()) {
@@ -34,11 +34,11 @@ public abstract class PlayerCommand extends Command {
 
     protected abstract void onRun(Player player, String[] args);
 
-    protected void setPermissionLevel(PermissionLevel permissionLevel) {
-        this.permissionLevel = permissionLevel;
+    protected void setPermissionLevel(PermissionLevel level) {
+        this.permissionLevel = level;
     }
 
     public @Nullable PermissionLevel getPermissionLevel() {
-        return permissionLevel;
+        return this.permissionLevel;
     }
 }

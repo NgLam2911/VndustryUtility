@@ -5,6 +5,10 @@ import vndustry.utility.command.Command;
 
 public abstract class ServerCommand extends Command {
 
+    ServerCommand(){
+        prepare();
+    }
+
     public final void execute(String[] args){
         if (this.isLocked()){
             Log.err("This command is not available :(");
