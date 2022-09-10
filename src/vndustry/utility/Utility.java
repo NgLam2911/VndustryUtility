@@ -12,7 +12,7 @@ public class Utility extends Plugin {
     @Override
     public void init() {
         EventHandler.initEvents();
-        Filters.initFilters();
+        NetworkFilters.initFilters();
 
         if (IS_DEVELOPMENT_BUILD) {
             Log.warn("You are running a VndustryUtility DEVELOPMENT build !");

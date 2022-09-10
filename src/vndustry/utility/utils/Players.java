@@ -1,12 +1,13 @@
 package vndustry.utility.utils;
 
 import arc.util.Nullable;
+import arc.util.Strings;
 import mindustry.gen.Groups;
 import mindustry.gen.Player;
 
 public class Players {
     public static @Nullable Player getPlayer(String name) {
-        return Groups.player.find(p -> p.name.equals(name));
+        return Groups.player.find(p -> Strings.stripColors(p.name).equalsIgnoreCase(name));
     }
 
     public static @Nullable Player getPlayerbyUUID(String UUID) {
@@ -18,6 +19,6 @@ public class Players {
     }
 
     public static @Nullable Player getPlayerbyPrefix(String prefix) {
-        return Groups.player.find(p -> p.name.startsWith(prefix));
+        return Groups.player.find(p -> Strings.stripColors(p.name).toLowerCase().startsWith(prefix.toLowerCase()));
     }
 }

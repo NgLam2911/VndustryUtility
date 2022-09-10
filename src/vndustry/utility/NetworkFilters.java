@@ -6,10 +6,10 @@ import mindustry.net.Administration.PlayerAction;
 import vndustry.utility.session.Session;
 import vndustry.utility.session.SessionManager;
 
-public class Filters {
+public class NetworkFilters {
     public static void initFilters() {
-        Vars.netServer.admins.addActionFilter(Filters::handleAction);
-        Vars.netServer.admins.addChatFilter(Filters::handleChat);
+        Vars.netServer.admins.addActionFilter(NetworkFilters::handleAction);
+        Vars.netServer.admins.addChatFilter(NetworkFilters::handleChat);
     }
 
     private static boolean handleAction(PlayerAction action) {
