@@ -1,6 +1,7 @@
 package vndustry.utility.command.player;
 
 import mindustry.Vars;
+import mindustry.gen.Call;
 import mindustry.gen.Player;
 import mindustry.type.UnitType;
 import vndustry.utility.utils.PermissionLevel;
@@ -40,6 +41,6 @@ public class Unit extends PlayerCommand {
     }
 
     private void changeUnit(Player player, UnitType unitType) {
-        player.unit(unitType.create(player.team()));
+        Call.unitControl(player, unitType.spawn(player.team(), player.x, player.y));
     }
 }
