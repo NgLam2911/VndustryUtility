@@ -26,7 +26,7 @@ public class BuildCore extends PlayerCommand {
             if (team == null) {
                 player.sendMessage("[scarlet]Team not found !");
                 player.sendMessage("[green]Available teams:");
-                for (Team t : Team.baseTeams) {
+                for (Team t : Team.all) {
                     player.sendMessage("[white] - [yellow]" + t.name);
                 }
                 return;

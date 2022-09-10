@@ -2,19 +2,16 @@ package vndustry.utility.command.player;
 
 import arc.util.Nullable;
 import mindustry.gen.Player;
+import vndustry.utility.command.Command;
 import vndustry.utility.session.Session;
 import vndustry.utility.session.SessionManager;
 import vndustry.utility.utils.PermissionLevel;
 
-public abstract class PlayerCommand {
-
-    private String name = "";
-    private String params = "";
-    private String description = "";
+public abstract class PlayerCommand extends Command {
     private @Nullable PermissionLevel permissionLevel = null;
 
-    PlayerCommand() {
-        prepare();
+    public PlayerCommand() {
+        super();
     }
 
     public final void execute(String[] args, Player player) {
@@ -30,12 +27,10 @@ public abstract class PlayerCommand {
                     player.sendMessage("[scarlet]This command is not available :(");
                 }
             } else {
-                player.sendMessage("[red]You don't have permission to use this command.");
+                player.sendMessage("[scarlet]You don't have permission to use this command.");
             }
         }
     }
-
-    protected abstract void prepare();
 
     protected abstract void onRun(Player player, String[] args);
 
@@ -43,36 +38,7 @@ public abstract class PlayerCommand {
         this.permissionLevel = permissionLevel;
     }
 
-    protected void setName(String name) {
-        this.name = name;
-    }
-
-    protected void setParams(String params) {
-        this.params = params;
-    }
-
-    protected void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getParams() {
-        return this.params;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
     public @Nullable PermissionLevel getPermissionLevel() {
         return permissionLevel;
     }
-
-    public boolean isLocked() {
-        return false;
-    }
-
 }
