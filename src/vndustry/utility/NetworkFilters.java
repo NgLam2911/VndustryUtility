@@ -1,10 +1,11 @@
 package vndustry.utility;
 
 import mindustry.Vars;
+import mindustry.gen.Call;
 import mindustry.gen.Player;
 import mindustry.net.Administration.PlayerAction;
-import vndustry.utility.session.Session;
-import vndustry.utility.session.SessionManager;
+import mindustry.net.Administration.ActionType;
+import vndustry.utility.session.*;
 
 public class NetworkFilters {
     public static void initFilters() {
@@ -14,6 +15,19 @@ public class NetworkFilters {
 
     private static boolean handleAction(PlayerAction action) {
         //TODO: Handle Actions
+        Session session = SessionManager.getSession(action.player);
+        if (session == null){
+            return true;
+        }
+        // Sandbox
+        if (session.sandbox){
+            if (action.type == ActionType.placeBlock){
+                Call.constructFinish(action.tile, action.block, action.unit, (byte)action.rotation, action.player.team(), action.config);
+            }
+            if (action.type == ActionType.breakBlock){
+                Call.deconstructFinish(action.tile, action.block, action.unit);
+            }
+        }
         return true;
     }
 

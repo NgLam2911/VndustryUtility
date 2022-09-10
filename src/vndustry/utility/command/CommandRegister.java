@@ -2,7 +2,7 @@ package vndustry.utility.command;
 
 import arc.util.CommandHandler;
 import vndustry.utility.command.player.*;
-import vndustry.utility.command.server.*;
+import vndustry.utility.command.server.ServerCommand;
 
 public class CommandRegister {
     public static void registerPlayerCommands(CommandHandler handler) {
@@ -14,6 +14,10 @@ public class CommandRegister {
         register(handler, new Mute());
         register(handler, new Unmute());
         register(handler, new Summon());
+        register(handler, new ChangeTeam());
+        register(handler, new Unit());
+        register(handler, new Sandbox());
+        register(handler, new Power());
     }
 
     public static void registerServerCommands(CommandHandler handler) {

@@ -33,7 +33,7 @@ public class BuildCore extends PlayerCommand {
             }
         }
         CoreBlock coreBlock = fromString(args[0]);
-        if (coreBlock == null){
+        if (coreBlock == null) {
             player.sendMessage("[scarlet]Invalid core type !");
             return;
         }

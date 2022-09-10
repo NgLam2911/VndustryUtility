@@ -9,6 +9,7 @@ public class Session {
 
     public boolean chat = true;
     public boolean muted = false;
+    public boolean sandbox = false;
 
     Session(Player player) {
         this.player = player;
