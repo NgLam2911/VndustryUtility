@@ -1,7 +1,5 @@
 package vndustry.utility.command;
 
-import mindustry.gen.Player;
-
 public abstract class Command {
 
     private String name = "";
