@@ -25,7 +25,11 @@ public class CommandRegister {
         //TODO: Register server commands
     }
 
-    private static void register(CommandHandler handler, Command command) {
+    private static void register(CommandHandler handler, PlayerCommand command) {
+        handler.register(command.getName(), command.getParams(), command.getDescription(), command::execute);
+    }
+    
+    private static void register(CommandHandler handler, ServerCommand command) {
         handler.register(command.getName(), command.getParams(), command.getDescription(), command::execute);
     }
 }
