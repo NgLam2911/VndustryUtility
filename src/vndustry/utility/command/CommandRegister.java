@@ -2,7 +2,7 @@ package vndustry.utility.command;
 
 import arc.util.CommandHandler;
 import vndustry.utility.command.player.*;
-import vndustry.utility.command.server.ServerCommand;
+import vndustry.utility.command.server.*;
 
 public class CommandRegister {
     public static void registerPlayerCommands(CommandHandler handler) {
@@ -25,11 +25,7 @@ public class CommandRegister {
         //TODO: Register server commands
     }
 
-    private static void register(CommandHandler handler, PlayerCommand command) {
-        handler.register(command.getName(), command.getParams(), command.getDescription(), command::execute);
-    }
-
-    private static void register(CommandHandler handler, ServerCommand command) {
+    private static void register(CommandHandler handler, Command command) {
         handler.register(command.getName(), command.getParams(), command.getDescription(), command::execute);
     }
 }
