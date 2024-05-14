@@ -10,17 +10,14 @@ import vndustry.utility.session.*;
 public class NetworkFilters {
     public static void initFilters() {
         Vars.netServer.admins.addActionFilter(NetworkFilters::handleAction);
-        Vars.netServer.admins.addChatFilter(NetworkFilters::handleChat);
+        Vars.netServer.admins.addChatFilter(NetworkFilters::handleChat); //Mindustry events is not cancellable
     }
 
     private static boolean handleAction(PlayerAction action) {
         //TODO: Handle Actions
         Session session = SessionManager.getSession(action.player);
-        if (session == null){
-            return true;
-        }
         // Sandbox
-        if (session.sandbox){
+        if ((session != null) && session.sandbox){
             if (action.type == ActionType.placeBlock){
                 Call.constructFinish(action.tile, action.block, action.unit, (byte)action.rotation, action.player.team(), action.config);
             }
