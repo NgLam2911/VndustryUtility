@@ -11,7 +11,6 @@ public class EventHandler {
     public static void initEvents() {
         Events.on(EventType.PlayerJoin.class, EventHandler::onPlayerJoin);
         Events.on(EventType.PlayerLeave.class, EventHandler::onPlayerLeave);
-        Events.on(EventType.PlayerChatEvent.class, EventHandler::onPlayerChatEvent);
     }
 
     private static void onPlayerJoin(PlayerJoin event) {
