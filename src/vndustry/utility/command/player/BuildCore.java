@@ -42,21 +42,14 @@ public class BuildCore extends PlayerCommand {
     }
 
     protected CoreBlock fromString(String name) {
-        switch (name) {
-            case "shard":
-                return (CoreBlock) Blocks.coreShard;
-            case "foundation":
-                return (CoreBlock) Blocks.coreFoundation;
-            case "nucleus":
-                return (CoreBlock) Blocks.coreNucleus;
-            case "bastion":
-                return (CoreBlock) Blocks.coreBastion;
-            case "citadel":
-                return (CoreBlock) Blocks.coreCitadel;
-            case "acropolis":
-                return (CoreBlock) Blocks.coreAcropolis;
-            default:
-                return null;
-        }
+        return switch (name) {
+            case "shard" -> (CoreBlock) Blocks.coreShard;
+            case "foundation" -> (CoreBlock) Blocks.coreFoundation;
+            case "nucleus" -> (CoreBlock) Blocks.coreNucleus;
+            case "bastion" -> (CoreBlock) Blocks.coreBastion;
+            case "citadel" -> (CoreBlock) Blocks.coreCitadel;
+            case "acropolis" -> (CoreBlock) Blocks.coreAcropolis;
+            default -> null;
+        };
     }
 }
