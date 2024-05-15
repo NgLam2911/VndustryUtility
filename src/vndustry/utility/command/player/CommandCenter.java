@@ -22,4 +22,9 @@ public class CommandCenter extends PlayerCommand{
         Call.constructFinish(player.tileOn(), block, player.unit(), (byte) 0, player.team(), false);
         player.sendMessage("[green]Placed a legacy command center block at your location");
     }
+
+    @Override
+    public boolean isLocked() {
+        return true;
+    }
 }

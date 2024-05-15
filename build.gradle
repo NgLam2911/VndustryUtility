@@ -19,10 +19,15 @@ ext{
     jabelVersion = "93fde537c7"
 }
 
-//java 8 backwards compatibility flag
 allprojects{
-    tasks.withType(JavaCompile).tap {
-        configureEach {
+    tasks.withType(JavaCompile){
+        options.compilerArgs.addAll(['--release', '8'])
+    }
+}
+
+allprojects{
+    tasks.withType(JavaCompile){
+        if(JavaVersion.current() != JavaVersion.VERSION_1_8){
             options.compilerArgs.addAll(['--release', '8'])
         }
     }
@@ -39,8 +44,7 @@ jar{
     from{
         configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
     }
-
     from(rootDir){
-        include "plugin.hjson"
+        include "plugin.json"
     }
 }

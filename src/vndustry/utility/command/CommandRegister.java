@@ -19,6 +19,7 @@ public class CommandRegister {
         register(handler, new Sandbox());
         register(handler, new Power());
         register(handler, new CommandCenter());
+        register(handler, new ItemSource());
     }
 
     public static void registerServerCommands(CommandHandler handler) {
